@@ -20,7 +20,7 @@ func (s ByteSlice) Sort() {
 }
 
 // SearchBytes searches for x in a sorted slice of bytes and returns the index
-// as specified by Search. The slice must be sorted in ascending order.
+// as specified by sort.Search. The slice must be sorted in ascending order.
 func SearchBytes(a []byte, x byte) int {
 	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
 }
@@ -38,7 +38,7 @@ func (s Float32Slice) Sort() {
 }
 
 // SearchFloat32s searches for x in a sorted slice of float32 and returns the index
-// as specified by Search. The slice must be sorted in ascending order.
+// as specified by sort.Search. The slice must be sorted in ascending order.
 func SearchFloat32s(a []float32, x float32) int {
 	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
 }
@@ -56,7 +56,7 @@ func (s Int8Slice) Sort() {
 }
 
 // SearchInt8s searches for x in a sorted slice of int8 and returns the index
-// as specified by Search. The slice must be sorted in ascending order.
+// as specified by sort.Search. The slice must be sorted in ascending order.
 func SearchInt8s(a []int8, x int8) int {
 	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
 }
@@ -74,7 +74,7 @@ func (s Int16Slice) Sort() {
 }
 
 // SearchInt16s searches for x in a sorted slice of int16 and returns the index
-// as specified by Search. The slice must be sorted in ascending order.
+// as specified by sort.Search. The slice must be sorted in ascending order.
 func SearchInt16s(a []int16, x int16) int {
 	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
 }
@@ -92,7 +92,7 @@ func (s Int32Slice) Sort() {
 }
 
 // SearchInt32s searches for x in a sorted slice of int32 and returns the index
-// as specified by Search. The slice must be sorted in ascending order.
+// as specified by sort.Search. The slice must be sorted in ascending order.
 func SearchInt32s(a []int32, x int32) int {
 	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
 }
@@ -110,7 +110,7 @@ func (s Int64Slice) Sort() {
 }
 
 // SearchInt64s searches for x in a sorted slice of int64 and returns the index
-// as specified by Search. The slice must be sorted in ascending order.
+// as specified by sort.Search. The slice must be sorted in ascending order.
 func SearchInt64s(a []int64, x int64) int {
 	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
 }
@@ -128,7 +128,7 @@ func (s UintSlice) Sort() {
 }
 
 // SearchUints searches for x in a sorted slice of uints and returns the index
-// as specified by Search. The slice must be sorted in ascending order.
+// as specified by sort.Search. The slice must be sorted in ascending order.
 func SearchUints(a []uint, x uint) int {
 	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
 }
@@ -146,7 +146,7 @@ func (s Uint16Slice) Sort() {
 }
 
 // SearchUint16s searches for x in a sorted slice of uint16 and returns the index
-// as specified by Search. The slice must be sorted in ascending order.
+// as specified by sort.Search. The slice must be sorted in ascending order.
 func SearchUint16s(a []uint16, x uint16) int {
 	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
 }
@@ -164,7 +164,7 @@ func (s Uint32Slice) Sort() {
 }
 
 // SearchUint32s searches for x in a sorted slice of uint32 and returns the index
-// as specified by Search. The slice must be sorted in ascending order.
+// as specified by sort.Search. The slice must be sorted in ascending order.
 func SearchUint32s(a []uint32, x uint32) int {
 	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
 }
@@ -182,7 +182,7 @@ func (s Uint64Slice) Sort() {
 }
 
 // SearchUint64s searches for x in a sorted slice of uint64 and returns the index
-// as specified by Search. The slice must be sorted in ascending order.
+// as specified by sort.Search. The slice must be sorted in ascending order.
 func SearchUint64s(a []uint64, x uint64) int {
 	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
 }
