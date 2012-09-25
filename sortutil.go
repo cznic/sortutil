@@ -186,3 +186,47 @@ func (s Uint64Slice) Sort() {
 func SearchUint64s(a []uint64, x uint64) int {
 	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
 }
+
+// A data structure to hold a key/value pair representing a map entry.
+type StringPair struct {
+	Key   string
+	Value string
+}
+
+func mapStringPair(m map[string]string) []StringPair {
+	p := make([]StringPair, len(m))
+	i := 0
+	for k, v := range m {
+		p[i] = StringPair{k, v}
+		i++
+	}
+	return p
+}
+
+// A map of Pairs that implements sort.Interface to sort by Value.
+type StringPairByValueMap []StringPair
+
+func (p StringPairByValueMap) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
+func (p StringPairByValueMap) Len() int           { return len(p) }
+func (p StringPairByValueMap) Less(i, j int) bool { return p[i].Value < p[j].Value }
+
+// A function to turn a map into a StringPairByValueMap, then sort and return it.
+func StringMapByValue(m map[string]string) StringPairByValueMap {
+	p := StringPairByValueMap(mapStringPair(m))
+	sort.Sort(p)
+	return p
+}
+
+// A map of Pairs that implements sort.Interface to sort by Key.
+type StringPairByKeyMap []StringPair
+
+func (p StringPairByKeyMap) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
+func (p StringPairByKeyMap) Len() int           { return len(p) }
+func (p StringPairByKeyMap) Less(i, j int) bool { return p[i].Key < p[j].Key }
+
+// A function to turn a map into a StringPairByKeyMap, then sort and return it.
+func StringMapByKey(m map[string]string) StringPairByKeyMap {
+	p := StringPairByKeyMap(mapStringPair(m))
+	sort.Sort(p)
+	return p
+}
