@@ -256,3 +256,21 @@ func TestStringMapByValue(t *testing.T) {
 		t.Fatal()
 	}
 }
+
+func TestStringMapByKey(t *testing.T) {
+	r := map[string]string{
+		"baz": "zoo",
+		"foo": "bar",
+	}
+	s := StringMapByKey(r)
+	if len(s) != 2 {
+		t.Fatal("expected 2 pairs")
+	}
+	first, second := s[0], s[1]
+	if first.Key != "baz" || first.Value != "zoo" || second.Key != "foo" || second.Value != "bar" {
+		t.Fatal()
+	}
+	if !sort.IsSorted(s) {
+		t.Fatal()
+	}
+}
