@@ -186,3 +186,28 @@ func (s Uint64Slice) Sort() {
 func SearchUint64s(a []uint64, x uint64) int {
 	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
 }
+
+// A data structure to hold a key/value pair representing a map entry.
+type StringPair struct {
+	Key   string
+	Value string
+}
+
+// A map of Pairs that implements sort.Interface to sort by Value.
+type StringPairMap []StringPair
+
+func (p StringPairMap) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
+func (p StringPairMap) Len() int           { return len(p) }
+func (p StringPairMap) Less(i, j int) bool { return p[i].Value < p[j].Value }
+
+// A function to turn a map into a StringPairMap, then sort and return it.
+func StringMapByValue(m map[string]string) StringPairMap {
+	p := make(StringPairMap, len(m))
+	i := 0
+	for k, v := range m {
+		p[i] = StringPair{k, v}
+		i++
+	}
+	sort.Sort(p)
+	return p
+}
