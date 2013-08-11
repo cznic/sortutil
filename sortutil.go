@@ -186,3 +186,21 @@ func (s Uint64Slice) Sort() {
 func SearchUint64s(a []uint64, x uint64) int {
 	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
 }
+
+// RuneSlice attaches the methods of sort.Interface to []rune, sorting in increasing order.
+type RuneSlice []rune
+
+func (s RuneSlice) Len() int           { return len(s) }
+func (s RuneSlice) Less(i, j int) bool { return s[i] < s[j] }
+func (s RuneSlice) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
+
+// Sort is a convenience method.
+func (s RuneSlice) Sort() {
+	sort.Sort(s)
+}
+
+// SearchRunes searches for x in a sorted slice of uint64 and returns the index
+// as specified by sort.Search. The slice must be sorted in ascending order.
+func SearchRunes(a []rune, x rune) int {
+	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
+}

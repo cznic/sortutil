@@ -238,3 +238,26 @@ func TestSearchUint64s(t *testing.T) {
 		t.Fatal(g, e)
 	}
 }
+
+func TestRuneSlice(t *testing.T) {
+	const N = 1e4
+	s := make(RuneSlice, N)
+	for i := range s {
+		s[i] = rune(i ^ 0x55aa55aa)
+	}
+	s.Sort()
+	if !sort.IsSorted(s) {
+		t.Fatal()
+	}
+}
+
+func TestSearchRunes(t *testing.T) {
+	const N = 1e4
+	s := make(RuneSlice, N)
+	for i := range s {
+		s[i] = rune(2 * i)
+	}
+	if g, e := SearchRunes(s, rune('\x0c')), 6; g != e {
+		t.Fatal(g, e)
+	}
+}
