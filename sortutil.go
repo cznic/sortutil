@@ -205,8 +205,8 @@ func SearchRunes(a []rune, x rune) int {
 	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
 }
 
-// Dedupe returns n, the number of distinct elements in a. The resulting
-// elements are sorted in a[0]..a[n-1] (a[:n] if a is a slice).
+// Dedupe returns n, the number of distinct elements in data. The resulting
+// elements are sorted in data[0]..a[n-1] (data[:n] for a slice).
 func Dedupe(data sort.Interface) (n int) {
 	if n = data.Len(); n < 2 {
 		return n
