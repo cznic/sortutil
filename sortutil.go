@@ -220,10 +220,7 @@ func Dedupe(data sort.Interface) (n int) {
 			if a != b {
 				data.Swap(a, b)
 			}
-			b++
-			continue
 		}
-
 		b++
 	}
 	return a + 1
