@@ -1,4 +1,4 @@
-// Copyright 2009 The Go Authors. All rights reserved.
+// Copyright 2014 The sortutil Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
@@ -46,7 +46,7 @@ func TestByteSlice(t *testing.T) {
 	}
 	s.Sort()
 	if !sort.IsSorted(s) {
-		t.Fatal()
+		t.Fatal(false)
 	}
 }
 
@@ -69,7 +69,7 @@ func TestFloat32Slice(t *testing.T) {
 	}
 	s.Sort()
 	if !sort.IsSorted(s) {
-		t.Fatal()
+		t.Fatal(false)
 	}
 }
 
@@ -92,7 +92,7 @@ func TestInt8Slice(t *testing.T) {
 	}
 	s.Sort()
 	if !sort.IsSorted(s) {
-		t.Fatal()
+		t.Fatal(false)
 	}
 }
 
@@ -115,7 +115,7 @@ func TestInt16Slice(t *testing.T) {
 	}
 	s.Sort()
 	if !sort.IsSorted(s) {
-		t.Fatal()
+		t.Fatal(false)
 	}
 }
 
@@ -138,7 +138,7 @@ func TestInt32Slice(t *testing.T) {
 	}
 	s.Sort()
 	if !sort.IsSorted(s) {
-		t.Fatal()
+		t.Fatal(false)
 	}
 }
 
@@ -161,7 +161,7 @@ func TestInt64Slice(t *testing.T) {
 	}
 	s.Sort()
 	if !sort.IsSorted(s) {
-		t.Fatal()
+		t.Fatal(false)
 	}
 }
 
@@ -184,7 +184,7 @@ func TestUintSlice(t *testing.T) {
 	}
 	s.Sort()
 	if !sort.IsSorted(s) {
-		t.Fatal()
+		t.Fatal(false)
 	}
 }
 
@@ -207,7 +207,7 @@ func TestUint16Slice(t *testing.T) {
 	}
 	s.Sort()
 	if !sort.IsSorted(s) {
-		t.Fatal()
+		t.Fatal(false)
 	}
 }
 
@@ -230,7 +230,7 @@ func TestUint32Slice(t *testing.T) {
 	}
 	s.Sort()
 	if !sort.IsSorted(s) {
-		t.Fatal()
+		t.Fatal(false)
 	}
 }
 
@@ -253,7 +253,7 @@ func TestUint64Slice(t *testing.T) {
 	}
 	s.Sort()
 	if !sort.IsSorted(s) {
-		t.Fatal()
+		t.Fatal(false)
 	}
 }
 
@@ -276,7 +276,7 @@ func TestRuneSlice(t *testing.T) {
 	}
 	s.Sort()
 	if !sort.IsSorted(s) {
-		t.Fatal()
+		t.Fatal(false)
 	}
 }
 
