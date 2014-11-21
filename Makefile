@@ -4,7 +4,7 @@
 
 .PHONY: all clean editor later nuke todo
 
-grep="--include=*.go"
+grep=--include=*.go
 
 all: editor
 	go vet
