@@ -16,7 +16,7 @@ clean:
 	rm -f *~
 
 editor:
-	go fmt
+	gofmt -s -l -w *.go
 	go test -i
 	go test
 	go build
