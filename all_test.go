@@ -246,6 +246,29 @@ func TestSearchUints(t *testing.T) {
 	}
 }
 
+func TestUint8Slice(t *testing.T) {
+	const N = 255
+	s := make(Uint8Slice, N)
+	for i := range s {
+		s[i] = uint8(i)
+	}
+	s.Sort()
+	if !sort.IsSorted(s) {
+		t.Fatal(false)
+	}
+}
+
+func TestSearchUint8s(t *testing.T) {
+	const N = 255
+	s := make(Uint8Slice, N)
+	for i := range s {
+		s[i] = uint8(2 * i)
+	}
+	if g, e := SearchUint8s(s, 12), 6; g != e {
+		t.Fatal(g, e)
+	}
+}
+
 func TestUint16Slice(t *testing.T) {
 	const N = 1e4
 	s := make(Uint16Slice, N)

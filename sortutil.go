@@ -177,6 +177,24 @@ func SearchUints(a []uint, x uint) int {
 	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
 }
 
+// Uint8Slice attaches the methods of sort.Interface to []uint8, sorting in increasing order.
+type Uint8Slice []uint8
+
+func (s Uint8Slice) Len() int           { return len(s) }
+func (s Uint8Slice) Less(i, j int) bool { return s[i] < s[j] }
+func (s Uint8Slice) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
+
+// Sort is a convenience method.
+func (s Uint8Slice) Sort() {
+	sort.Sort(s)
+}
+
+// SearchUint8s searches for x in a sorted slice of uint16 and returns the index
+// as specified by sort.Search. The slice must be sorted in ascending order.
+func SearchUint8s(a []uint8, x uint8) int {
+	return sort.Search(len(a), func(i int) bool { return a[i] >= x })
+}
+
 // Uint16Slice attaches the methods of sort.Interface to []uint16, sorting in increasing order.
 type Uint16Slice []uint16
 
